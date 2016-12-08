@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Game of Life</title>
+		<link rel="stylesheet" href="css/gameOfLife.css" type="text/css" />
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="js/gameOfLife.js"></script>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			var n;
+			var m;
+			var btnSize;
+			var border;
+			var borderRadius;
+			
+			$( document ).ready(function() {
+				$("#start").click(function(){
+					$("#start-controls").hide();
+					n = $('#n').val();
+					m = $('#m').val();
+					btnSize = $('#size').val();
+					showBorder = $('#showBorder').is(':checked') ? true : false;
+					borderRadius = $('#borderRadius').is(':checked') ? true : false;
+					
+					if(isNaN(n) || n<15)
+						n=15;
+					else if(n>150)
+						n=150;
+					if(isNaN(m) || m<15)
+						m=15;
+					else if(m>150)
+						m=150;
+					if(isNaN(btnSize) || btnSize<15)
+						btnSize=15;
+					else if(btnSize>50)
+						btnSize=50;
+					
+			    	start(n,m,btnSize,showBorder);
+			    	$("#in-game-wrapper").slideDown("fast");
+				});
+				var toggle = 0;
+				
+				$( "#next" ).click(function() {
+					
+					if(toggle == 0){
+					    $("#next").text("Stop");
+						$("#in-game-controls").slideUp("fast");
+						refreshIntervalId = window.setInterval(function(){
+							step(n,m);
+							stepColor(n,m);
+							if(borderRadius)
+								setRadius(n,m);
+						}, -$('#speed').val());
+						toggle = 1;	
+						
+					} else {
+						clearInterval(refreshIntervalId);
+						toggle = 0;
+						$("#next").text("Start");
+						$("#in-game-controls").slideDown("fast");
+					}
+				});
+				
+				$("#in-header").click(function() {
+				    if(toggle == 1){
+				        clearInterval(refreshIntervalId);
+						toggle = 0;
+						$("#next").text("Start");
+				    }
+				    $("#in-game-controls").slideToggle("fast");
+				})
+				
+				$("#reset").click(function() {
+				   restart(n,m); 
+				});
+				
+				$("#new").click(function() {
+				   location.reload();
+				});
+				
+			});
+		</script>
+		<div id="container">
+			<div id="start-controls">
+				<input class='start-article' placeholder="Grid Width (15-150)" id='n' type='text'></input>
+				<input class='start-article' placeholder="Grid Height (15-150)" id='m' type='text'></input>
+				<input class='start-article' placeholder="Cell Size (15-50)" id='size' type='text'></input>
+				<label for="classic">Classic</label>
+				<input class='start-article' id='classic' type='radio' name='mode' checked="checked"></input>
+				<label for="showBorder">Grid</label>
+				<input class='start-article' id='showBorder' type='radio' name='mode'></input>
+				<label for="borderRadius">Round</label>
+				<input class='start-article' id='borderRadius' type='radio' name='mode'></input>
+				<div class='' id='start'>Generate</div>
+			</div>
+			
+			<div id="map-container">
+				<div id="map"></div>
+			</div>
+			
+			<div id='next' style='display:none;'>Start</div>
+			<div id='in-game-wrapper'>
+				<div id='in-header'>Settings<div id='in-minimize'></div></div>
+				<div id='in-game-controls'>
+					<div class='in-text'>- Speed</div>
+					<input id='speed' type='range' min='-1000' max='-20'  style="display:none;"></input>
+					<div id='in-buttons'>
+						<div class='in-button' id="reset">Reset</div>
+						<div class='in-button no-margin' id="new">New</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id='footer'></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,158 @@
+body{
+    width: 100%;
+    height: calc(100vh - 30px);
+    margin: 0;
+}
+#container{
+    width:100%;
+    min-height: 100%;
+    position: relative;
+}
+.btn{
+    background-color: #ccc;
+    float: left;
+    cursor:default;
+}
+.btn:hover{
+    background-color:#aaa;
+}
+.border{
+    border:1px solid #aaa;
+}
+.alive{
+    background:#1BA1E2;
+}
+.alive:hover{
+    background:lightblue;
+}
+.map{
+    padding:1px;
+    background-color:#ccc;
+    margin:0 auto 0 auto;
+    cursor:default;
+}
+#map-container{
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    margin: 30px auto 0 auto;
+    background-color:#ccc;
+
+}
+
+.radius-top-left{
+    border-top-left-radius: 30%;
+}
+.radius-top-right{
+    border-top-right-radius: 30%;
+}
+.radius-bottom-left{
+    border-bottom-left-radius: 30%;
+}
+.radius-bottom-right{
+    border-bottom-right-radius: 30%;
+}
+#next,#start{
+    background:#1BA1E2;
+    padding: 20px 0;
+    font-size: 30px;
+    line-height: 30px;
+    color:#fff;
+    width:100%;
+    text-align:center;
+    cursor:pointer;
+}
+#next{
+    margin:0 auto;
+    padding:20px 0;
+}
+#footer{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    float: left;
+}
+#next-fix{
+    float: left;
+    width:100%;
+    height:70px;
+}
+#start-controls{
+    width:36%;
+    margin:10% 30% 0 30%;
+    padding:2%;
+    background:#ccc;
+}
+#in-game-wrapper{
+    position: absolute;
+    display: none;
+    top:-30px;
+    margin:0 auto;
+
+}
+#in-game-controls{
+    padding:2%;
+    background:rgba(0,0,0,0.7);
+    float:left;
+    width:96%;
+}
+#in-header{
+    height: 30px;
+    background:#1BA1E2;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    font-size:22px;
+    line-height: 30px;
+    position: relative;
+}
+#in-minimize{
+    float: right;
+    width: 22px;
+    height: 4px;
+    margin:14px;
+    background:#fff;
+    border-radius: 15%;
+    position: absolute;
+    top:0;
+    right: 0;
+}
+.start-article{
+    width:100%;
+    text-align:center;
+    margin:10px 0;
+    height: 30px;
+}
+#speed{
+    width:100%;
+}
+.in-text{
+    color:#fff;
+    font-size:20px;
+    text-align:left;
+}
+#in-buttons{
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top:1px solid #999;
+    width:100%;
+    display: block;
+}
+.in-button{
+    width:47%;
+    margin-right:6%;
+    height:50px;
+    background:#1BA1E2;
+    float:left;
+    font-size:25px;
+    line-height: 50px;
+    text-align:center;
+    color:#fff;
+    cursor: pointer;
+}
+.in-button:hover{
+    background:#0A4866;
+}
+.no-margin{
+    margin:0;
+}
