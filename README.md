@@ -10,3 +10,6 @@ Generate map, draw some cells, hit start, and watch them through generations
 * Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
 
 [**Play here!**](http://htmlpreview.github.io/?https://github.com/Hrimthusar/GameOfLife/blob/master/index.html)
+
+![Unable to show Screenshot](https://github.com/Hrimthusar/GameOfLife/blob/master/screenshots/screenshot1.png)  
+![Unable to show Screenshot](https://github.com/Hrimthusar/GameOfLife/blob/master/screenshots/screenshot2.png)
